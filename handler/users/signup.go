@@ -13,6 +13,7 @@ import (
 
 func CreateAccount(c *gin.Context) {
 	var req models.CreateAccountRequest
+	var rsp models.UsersResponse
 
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, response.ErrorResponse("Invalid Request"))
@@ -32,5 +33,10 @@ func CreateAccount(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, response.ErrorResponse("Unable to create account"))
 		return
 	}
-	c.JSON(http.StatusCreated, users)
+	rsp = models.UsersResponse{
+		ID:        users.ID,
+		UserName:  users.UserName,
+		CreatedAt: users.CreatedAt,
+	}
+	c.JSON(http.StatusCreated, rsp)
 }

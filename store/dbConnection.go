@@ -2,6 +2,8 @@ package store
 
 import (
 	"Web-Scraping_golang/models"
+	"Web-Scraping_golang/utils/token"
+	"fmt"
 	"log"
 
 	"gorm.io/driver/postgres"
@@ -11,8 +13,9 @@ import (
 var DBState State
 
 type State struct {
-	db     *gorm.DB
-	Config *models.Config
+	db         *gorm.DB
+	Config     *models.Config
+	TokenMaker token.Maker
 }
 
 func ConnectionDb(config models.Config) *gorm.DB {
@@ -35,10 +38,17 @@ func Migration(db *gorm.DB) {
 }
 
 func Store(config models.Config, db *gorm.DB) {
+	var err error
 	Migration(db)
+	tokenMaker, err := token.NewJWTMaker(config.AccessTokenSymmetricKey)
+	if err != nil {
+		fmt.Errorf("cannot create token maker: %w", err)
+		return
+	}
 	DBState = State{
-		db:     db,
-		Config: &config,
+		db:         db,
+		Config:     &config,
+		TokenMaker: tokenMaker,
 	}
 
 }
