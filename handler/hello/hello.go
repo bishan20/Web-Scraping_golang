@@ -5,6 +5,7 @@ import (
 )
 
 func ShowHello(c *gin.Context) {
+
 	c.JSON(200, gin.H{
 		"message": "hello",
 	})

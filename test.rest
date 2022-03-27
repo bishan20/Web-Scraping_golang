@@ -1,0 +1,12 @@
+###
+#checking api with hello world
+GET http://localhost:8080/hello
+
+###
+#create user api with post method 
+POST http://localhost:8080/create-user
+
+{
+    "username":"bishan",
+    "password":"123456789"
+}

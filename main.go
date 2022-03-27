@@ -2,7 +2,7 @@ package main
 
 import (
 	"Web-Scraping_golang/api"
-	"Web-Scraping_golang/repository"
+	"Web-Scraping_golang/store"
 	"Web-Scraping_golang/utils"
 	"log"
 )
@@ -12,15 +12,12 @@ func main() {
 	if err != nil {
 		log.Fatal("Configuration could not be loaded:", err)
 	}
-	conn := repository.ConnectionDb(config)
-	store := repository.NewStore(conn)
-	server, err := api.NewServer(config, store)
-	if err != nil {
-		log.Fatal("cannot create server:", err)
-	}
+	dbConn := store.ConnectionDb(config)
+	store.Store(config, dbConn)
+	api.Server()
 
-	err = server.Start(config.ServerAddress)
+	err = api.Start(config.ServerAddress)
 	if err != nil {
-		log.Fatal("cannot start server:", err)
+		log.Fatal("Error while starting server:", err)
 	}
 }

@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-VERSION="2.2.3"
+VERSION="2.2.2"
 
 set -- "$@" -- "$TIMEOUT" "$QUIET" "$PROTOCOL" "$HOST" "$PORT" "$result"
 TIMEOUT=15
@@ -55,7 +55,7 @@ wait_for() {
         exit 1
       fi
       ;;
-    http)
+    wget)
       if ! command -v wget >/dev/null; then
         echoerr 'wget command is missing!'
         exit 1
