@@ -3,19 +3,17 @@ package api
 import (
 	"Web-Scraping_golang/handler/hello"
 	"Web-Scraping_golang/handler/users"
+	"Web-Scraping_golang/models"
 
 	"github.com/gin-gonic/gin"
 )
 
 var routers *gin.Engine
 
-func Server() {
-	// tokenMaker, err := token.NewPasetoMaker(config.TokenSymmetricKey)
-	// if err != nil {
-	// 	return nil, fmt.Errorf("cannot create token maker: %w", err)
-	// }
+func Server(config models.Config) {
+
 	setupRouter()
-	return
+
 }
 
 func setupRouter() {

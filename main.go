@@ -14,7 +14,7 @@ func main() {
 	}
 	dbConn := store.ConnectionDb(config)
 	store.Store(config, dbConn)
-	api.Server()
+	api.Server(config)
 
 	err = api.Start(config.ServerAddress)
 	if err != nil {

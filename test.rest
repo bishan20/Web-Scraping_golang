@@ -10,3 +10,12 @@ POST http://localhost:8080/create-user
     "username":"bishan",
     "password":"123456789"
 }
+
+###
+# login user
+POST http://localhost:8080/login
+
+{
+    "username":"bishan",
+    "password":"123456789"
+}
