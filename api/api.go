@@ -2,39 +2,31 @@ package api
 
 import (
 	"Web-Scraping_golang/handler/hello"
-	"Web-Scraping_golang/models"
-	"Web-Scraping_golang/repository"
+	"Web-Scraping_golang/handler/users"
 
 	"github.com/gin-gonic/gin"
 )
 
-type Server struct {
-	config models.Config
-	store  repository.Store
-	//	tokenMaker token.Maker
-	router *gin.Engine
-}
+var routers *gin.Engine
 
-func NewServer(config models.Config, store repository.Store) (*Server, error) {
+func Server() {
 	// tokenMaker, err := token.NewPasetoMaker(config.TokenSymmetricKey)
 	// if err != nil {
 	// 	return nil, fmt.Errorf("cannot create token maker: %w", err)
 	// }
-	server := &Server{
-		config: config,
-		store:  store,
-		//tokenMaker: tokenMaker,
-	}
-	server.setupRouter()
-	return server, nil
+	setupRouter()
+	return
 }
 
-func (server *Server) setupRouter() {
+func setupRouter() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.GET("/hello", hello.ShowHello)
-	server.router = router
+	router.POST("/create-user", users.CreateAccount)
+	router.POST("/login", users.UserLogin)
+	routers = router
+
 }
-func (server *Server) Start(address string) error {
-	return server.router.Run(address)
+func Start(address string) error {
+	return routers.Run(address)
 }
