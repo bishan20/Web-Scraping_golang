@@ -41,7 +41,7 @@ func UserLogin(c *gin.Context) {
 
 	err = password.CheckPassword(req.Password, user.Password)
 	if err != nil {
-		c.JSON(http.StatusUnauthorized, response.ErrorResponse("passowrd incorect"))
+		c.JSON(http.StatusUnauthorized, response.ErrorResponse("Password Incorrect"))
 		return
 	}
 	token, err := store.DBState.TokenMaker.CreateToken(user.UserName, user.ID, store.DBState.Config.AccessTokenDuration)

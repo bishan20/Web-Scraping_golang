@@ -31,7 +31,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiOGMzZWUwL
 ###
 #Get scrapping data
 GET http://localhost:8080/scrape
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiOGMzZWUwLTYyOWYtNGQwMy04ODI1LTdjNzRhM2EwNWFmZiIsInVzZXJJZCI6MSwidXNlcm5hbWUiOiJiaXNoYW4iLCJpc3N1ZWRfYXQiOiIyMDIyLTAzLTI4VDA3OjI0OjQxLjAxOTk0MDQ2OFoiLCJleHBpcmVkX2F0IjoiMjAyMi0wMy0yOFQxMTozNDo0MS4wMTk5NDA2NDhaIn0.eG8aAoje7s_bENwb06kM1cSgo8y7eJgfOUs-p8KRAaM
 
 ###
 #searching

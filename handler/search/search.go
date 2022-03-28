@@ -15,7 +15,7 @@ func Search(c *gin.Context) {
 	q := c.Request.URL.Query().Get("q")
 	data, err := store.DBState.GetSearchedScrape(q)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, response.ErrorResponse("error while search"))
+		c.JSON(http.StatusInternalServerError, response.ErrorResponse("error while searching"))
 		return
 	}
 	for _, v := range data {

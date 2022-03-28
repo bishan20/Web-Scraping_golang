@@ -42,7 +42,7 @@ func Store(config models.Config, db *gorm.DB) {
 	Migration(db)
 	tokenMaker, err := token.NewJWTMaker(config.AccessTokenSymmetricKey)
 	if err != nil {
-		fmt.Errorf("cannot create token maker: %w", err)
+		fmt.Errorf("Cannot create token maker: %w", err)
 		return
 	}
 	DBState = State{
