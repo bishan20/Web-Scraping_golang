@@ -12,7 +12,7 @@ func (state *State) GetFilteredScrape(from time.Time, to time.Time) ([]models.Sc
 	done := make(chan bool)
 	go func(ch chan<- bool) {
 
-		err = state.db.Model(&models.Scrape{}).Where("created_at BETWEEN ? AND ?", from, to).Find(&resp).Error
+		err = state.db.Model(&models.Scrape{}).Where("created_at >= ? and created_at <= ?", from, to).Find(&resp).Error
 		if err != nil {
 			ch <- false
 			return

@@ -2,15 +2,16 @@ package models
 
 import "time"
 
-type CreateScrapeRequest struct {
-	ScrappingUrl []string `json:"scrape_url"`
+type CreateFilterRequest struct {
+	FromDate string `json:"from_date" `
+	ToDate   string `json:"to_date" `
 }
 
-type CreateScrapeResponse struct {
-	Scrapped []ScrapeResponse `json:"scrapped"`
+type CreateFilterResponse struct {
+	Filter []FilterResponse `json:"scrapped"`
 }
 
-type ScrapeResponse struct {
+type FilterResponse struct {
 	ID           uint      `json:"id"`
 	UserID       uint      `json:"user_id"`
 	ScrappingUrl string    `json:"scrape_url"`
