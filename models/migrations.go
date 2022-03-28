@@ -16,9 +16,9 @@ type Users struct {
 
 type Scrape struct {
 	gorm.Model
-	ID            uint      `gorm:"primaryKey"`
-	UserID        uint      `gorm:"not null"`
-	ScrappingUrl  string    `gorm:"not null; index"`
-	ScrappingData string    `gorm:"not null"`
-	CreatedAt     time.Time `gorm:"index; default:now()"`
+	ID           uint      `gorm:"primaryKey"`
+	UserID       uint      `gorm:"not null"`
+	ScrappingUrl string    `gorm:"not null; index"`
+	ScrappedData string    `gorm:"not null"`
+	CreatedAt    time.Time `gorm:"index"`
 }

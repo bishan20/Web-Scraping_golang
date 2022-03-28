@@ -11,7 +11,7 @@ func (state *State) GetSearchedScrape(url string) ([]models.Scrape, error) {
 	done := make(chan bool)
 	go func(ch chan<- bool) {
 
-		err = state.db.Model(&models.Scrape{}).Where("like ?", "%"+url+"%").Find(&resp).Error
+		err = state.db.Model(&models.Scrape{}).Where("scrapping_url = ?", url).Find(&resp).Error
 		if err != nil {
 			ch <- false
 			return
