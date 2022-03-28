@@ -28,7 +28,7 @@ func setupRouter() {
 	router.POST("/create-user", users.CreateAccount)
 	router.POST("/login", users.UserLogin)
 	scrapeRoute.POST("/scrape", scrape.CreateScrape)
-	scrapeRoute.GET("/scrape", scrape.GetScrape)
+	router.GET("/scrape", scrape.GetScrape)
 	router.POST("/filter", filter.CreateFilteredScrape)
 	router.GET("/search", search.Search)
 	routers = router
