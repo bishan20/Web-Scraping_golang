@@ -1,6 +1,6 @@
 # Web-Scraping_golang
 
-Features of the project
+# Features of the project
 
 1. User can create a new account.
 2. User with a registered account can sign in to the system.
@@ -8,24 +8,24 @@ Features of the project
 4. Scrapped content can be stored inside database.
 5. All the stored contents can be viewed by anyone. For viewing the stored contents, searching(by url) and filtering(by date) can be used. 
 
-Technology Used
+# Technology Used
 
 1. Golang
 2. PostgreSQL
 3. Docker
 
-Package Used
+# Package Used
 
 1. Gin ( go framework )
 2. GORM ( ORM library )
 3. Viper ( configuration package )
 4. JWT ( for authentication )
 
-Documentation
+# Documentation
   
 - For documentation, rest file is used in the root directory of the project. Since I've used Visual Studio Code for my IDE, there's an extension called Rest Client which you need to install in your IDE. This extension helps you execute your rest file and test your system in your IDE.
 
-Steps to run
+# Steps to run
 
 1. Install Docker in your system.
 2. Clone this repo using the command "git clone https://github.com/bishan20/Web-Scraping_golang".
