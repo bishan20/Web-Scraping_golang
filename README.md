@@ -28,7 +28,7 @@
 # Steps to run
 
 1. Install Docker in your system.
-2. Clone this repo using the command "git clone https://github.com/bishan20/Web-Scraping_golang".
+2. Clone this repo using the command "git clone https://github.com/bishan20/Web-Scraping_golang.git".
 3. Open the project in Visual Studio Code.
 4. For Windows, OPEN start.sh and SELECT " LF " in end of line sequence.
 5. To run your project in docker, use command "docker-compose up" in your terminal.
